@@ -1,0 +1,24 @@
+Age,Salary,Gender,Country,Purchased
+
+===Hadoop======
+
+load data from local to gcp 
+
+hadoop fs -mkdir /user/bank
+
+hadoop fs -put retailstore.csv /user/bank/
+
+
+======Hive=========
+
+create table if not exists orders(
+Age int,
+Salary int,
+Gender String,
+Country String,
+Purchased String
+)
+row format delimited fields terminated by ","
+location "/user/banking/"
+TBLPROPERTIES("skip.header.line.count"="1");
+
